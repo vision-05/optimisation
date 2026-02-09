@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.15...4.0)
+
+project(optimisation)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Eigen3 REQUIRED)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(/usr/include/eigen3)
+
+add_executable(optimisation)
+
+target_sources(optimisation
+PRIVATE
+  test/linesearch.cpp)
+
+target_link_libraries(controltest
+  PRIVATE
+  Eigen3::Eigen)
